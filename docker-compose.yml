@@ -1,0 +1,43 @@
+version: '2'
+services:
+  web:
+    image: mkato19640821/test:centos7
+    ports:
+      - "10081:80"
+    tty: true
+    stdin_open: true
+    privileged: true
+    command: /sbin/init
+
+#  # db server ( mysql )
+#  db01:
+#    build: ./db01/build
+#    image: miro/centos7db01:1.0
+#    ports:
+#      - "3306:3306"
+#    volumes:
+#      - ./db01/data:/docker-host/db01/data
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#    tty: true
+#    stdin_open: true
+#    privileged: true
+#    command: /sbin/init
+
+#  # web server 01 ( apache )
+#  web01:
+#    build: ./web01/build
+#    image: miro/centos7web01:1.0
+#    ports:
+#      - "80:80"
+#      - "3000:3000"
+#    links:
+#      - "db01:db01"
+#    volumes:
+#      - ./web01/conf.d/vhosts.conf:/etc/httpd/conf.d/vhosts.conf
+#      - ./web01/public_html:/var/www/html
+#      - ./web01/webapps:/usr/local/webapps
+#    tty: true
+#    stdin_open: true
+#    privileged: true
+#    command: /sbin/init
